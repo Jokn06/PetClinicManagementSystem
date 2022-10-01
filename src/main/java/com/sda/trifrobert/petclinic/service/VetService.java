@@ -3,6 +3,7 @@ package com.sda.trifrobert.petclinic.service;
 import com.sda.trifrobert.petclinic.model.Vet;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface VetService {
 
@@ -14,4 +15,6 @@ public interface VetService {
     );
 
     List<Vet> getAllVets();
+
+    Optional<Vet> findById(int id);
 }
