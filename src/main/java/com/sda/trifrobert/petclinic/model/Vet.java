@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table (name = "vet")
 public class Vet {
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column (name = "first_name")
     private String firstName;
-    @Column( name = "last name")
+    @Column( name = "last_name")
     private  String lastName;
     @Column( name = "address")
     private String address;
@@ -24,19 +25,11 @@ public class Vet {
     public Vet(){
     }
 
-    public Vet(int id, String firstName, String lastName, String address, String specialityl) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.speciality = specialityl;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,14 +57,6 @@ public class Vet {
         this.address = address;
     }
 
-    public String getSpecialityl() {
-        return speciality;
-    }
-
-    public void setSpecialityl(String specialityl) {
-        this.speciality = specialityl;
-    }
-
     public String getSpeciality() {
         return speciality;
     }
@@ -85,6 +70,15 @@ public class Vet {
     }
 
     public void setConsults(List<Consult> consults) {
+        this.consults = consults;
+    }
+
+    public Vet(Integer id, String firstName, String lastName, String address, String speciality, List<Consult> consults) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.speciality = speciality;
         this.consults = consults;
     }
 
