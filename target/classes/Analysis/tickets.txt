@@ -4,7 +4,7 @@
 done.PCMS_1: Setup hibernate infrastructure.
 done. PCMS_2: Setup hibernate model.
 done.PCMS_3: Setup application architecture
-PCMS_4:Implement a way for the user to interact with the system.
+done. PCMS_4:Implement a way for the user to interact with the system.
 
 ----------------------------
 

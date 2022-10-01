@@ -1,5 +1,9 @@
 package com.sda.trifrobert.petclinic.service;
 
+import com.sda.trifrobert.petclinic.model.Vet;
+
+import java.util.List;
+
 public interface VetService {
 
     void createVet(
@@ -9,4 +13,5 @@ public interface VetService {
             String speciality
     );
 
+    List<Vet> getAllVets();
 }

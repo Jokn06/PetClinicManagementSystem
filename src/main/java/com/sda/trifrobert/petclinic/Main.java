@@ -27,10 +27,10 @@ public class Main {
                     vetController.createVet();
                     break;
                 case VIEW_ALL_VETS:
-                    System.out.println("Not implemented");
+                    vetController.showAllVets();
                     break;
                 case UNKNOWN:
-                    System.err.println("Invalid option selected! ");
+                    System.err.prin2tln("Invalid option selected! ");
                     break;
                 case  EXIT:
                     System.out.println("bye!");

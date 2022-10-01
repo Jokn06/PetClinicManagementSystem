@@ -1,5 +1,6 @@
 package com.sda.trifrobert.petclinic.controller;
 
+import com.sda.trifrobert.petclinic.model.Vet;
 import com.sda.trifrobert.petclinic.service.VetService;
 
 import java.util.Scanner;
@@ -32,7 +33,12 @@ public class VetController {
             System.out.println("Internal server error ! " + e.getMessage());
         }
 
-
     }
+  public void showAllVets() {
+      System.out.println("Vet List: ");
+      for( Vet vet: vetService.getAllVets()) {
+          System.out.println(vet.getId() + " " +vet.getFirstName() + " " + vet.getLastName());
+      }
 
+  }
 }

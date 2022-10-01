@@ -1,6 +1,9 @@
 package com.sda.trifrobert.petclinic.service;
 
+import com.sda.trifrobert.petclinic.model.Vet;
 import com.sda.trifrobert.petclinic.repository.VetRepository;
+
+import java.util.List;
 
 public class VetServiceImpl implements VetService {
     private final VetRepository vetRepository;
@@ -27,5 +30,10 @@ public class VetServiceImpl implements VetService {
         vetRepository.createVet(firstName,lastName, address, speciality);
 
 
+    }
+
+    @Override
+    public List<Vet> getAllVets() {
+        return  vetRepository.getAllVets();
     }
 }
