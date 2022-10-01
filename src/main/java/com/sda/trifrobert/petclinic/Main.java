@@ -16,17 +16,17 @@ public class Main {
         VetController vetController = new VetController(new VetServiceImpl(new VetRepositoryImpl()));
 
         UserOption userOption;
-        Scanner scanner = new Scanner( System.in);
+        Scanner scanner = new Scanner(System.in);
         do {
-           try {
-               UserOption.displayAllOptions();
-               System.out.println("please select an option: ");
-               int numericOption = Integer.parseInt(scanner.nextLine().trim());
-               userOption = UserOption.findByNumericOption(numericOption);
-           } catch (NumberFormatException e){
-               userOption = UserOption.UNKNOWN;
-           }
-           switch (userOption){
+            try {
+                UserOption.displayAllOptions();
+                System.out.println("please select an option: ");
+                int numericOption = Integer.parseInt(scanner.nextLine().trim());
+                userOption = UserOption.findByNumericOption(numericOption);
+            } catch (NumberFormatException e) {
+                userOption = UserOption.UNKNOWN;
+            }
+            switch (userOption) {
                 case ADD_VET:
                     vetController.createVet();
                     break;
@@ -36,17 +36,20 @@ public class Main {
                 case VIEW_ALL_BY_ID:
                     vetController.showVetById();
                     break;
-               case UPDATE_VET_BY_ID:
-                   vetController.updateVetById();
-                   break;
+                case UPDATE_VET_BY_ID:
+                    vetController.updateVetById();
+                    break;
+                case DELETE_VET_BY_ID:
+                    vetController.deleteVetById();
+                    break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected! ");
                     break;
-                case  EXIT:
+                case EXIT:
                     System.out.println("bye!");
                     break;
             }
-       }while (userOption != UserOption.EXIT);
-     SessionManager.shutDown();
+        } while (userOption != UserOption.EXIT);
+        SessionManager.shutDown();
     }
 }

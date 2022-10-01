@@ -25,4 +25,6 @@ public interface VetRepository {
             String speciality
     );
 
+    void deleteVetById(int id);
+
 }

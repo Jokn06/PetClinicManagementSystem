@@ -84,4 +84,18 @@ public class VetController {
             System.err.println("Internal server error !");
         }
     }
+
+    public void deleteVetById() {
+        try {
+            System.out.println("Please insert the id: ");
+            int id = Integer.parseInt(scanner.nextLine().trim());
+            vetService.deleteVetById(id);
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid Id format !");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Internal server error !");
+        }
+    }
 }
