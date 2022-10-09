@@ -1,7 +1,10 @@
 package com.sda.trifrobert.petclinic;
 
+import com.sda.trifrobert.petclinic.controller.PetController;
 import com.sda.trifrobert.petclinic.controller.VetController;
+import com.sda.trifrobert.petclinic.repository.PetRepositoryImpl;
 import com.sda.trifrobert.petclinic.repository.VetRepositoryImpl;
+import com.sda.trifrobert.petclinic.service.PetServiceImpl;
 import com.sda.trifrobert.petclinic.service.VetServiceImpl;
 import com.sda.trifrobert.petclinic.utils.SessionManager;
 import com.sda.trifrobert.petclinic.utils.UserOption;
@@ -14,6 +17,7 @@ public class Main {
 
         SessionManager.getSessionFactory();
         VetController vetController = new VetController(new VetServiceImpl(new VetRepositoryImpl()));
+        PetController petController = new PetController(new PetServiceImpl(new PetRepositoryImpl()));
 
         UserOption userOption;
         Scanner scanner = new Scanner(System.in);
@@ -42,6 +46,15 @@ public class Main {
                 case DELETE_VET_BY_ID:
                     vetController.deleteVetById();
                     break;
+                case ADD_PET:
+                    petController.createPet();
+                    break;
+                case IMPORT_VETS:
+                    vetController.importVets();
+                    break;
+                case IMPORT_PETS:
+                    petController.importPets();
+                    break;
                 case UNKNOWN:
                     System.err.println("Invalid option selected! ");
                     break;
@@ -50,6 +63,7 @@ public class Main {
                     break;
             }
         } while (userOption != UserOption.EXIT);
+
         SessionManager.shutDown();
     }
 }

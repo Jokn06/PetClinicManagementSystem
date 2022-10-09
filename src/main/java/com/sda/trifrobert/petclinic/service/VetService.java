@@ -3,6 +3,7 @@ package com.sda.trifrobert.petclinic.service;
 import com.sda.trifrobert.petclinic.model.Vet;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,4 +29,6 @@ public interface VetService {
     );
 
     void deleteVetById(int id);
+
+    void importVets() throws IOException;
 }

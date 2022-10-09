@@ -3,7 +3,8 @@ package com.sda.trifrobert.petclinic.controller;
 import com.sda.trifrobert.petclinic.model.Vet;
 import com.sda.trifrobert.petclinic.service.VetService;
 
-import java.util.InputMismatchException;
+
+import java.io.IOException;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -98,4 +99,15 @@ public class VetController {
             System.err.println("Internal server error !");
         }
     }
+
+    public void importVets() {
+        try {
+            System.out.println("Import vets started! ");
+            vetService.importVets();
+            System.out.println("Import vets finished! ");
+        } catch (IOException e) {
+            System.out.println("Import vets failed!");
+        }
+    }
+
 }

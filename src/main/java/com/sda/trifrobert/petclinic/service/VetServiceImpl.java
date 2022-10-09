@@ -3,6 +3,10 @@ package com.sda.trifrobert.petclinic.service;
 import com.sda.trifrobert.petclinic.model.Vet;
 import com.sda.trifrobert.petclinic.repository.VetRepository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,13 +39,15 @@ public class VetServiceImpl implements VetService {
 
     @Override
     public List<Vet> getAllVets() {
-        return vetRepository.getAllVets();
+
+        return vetRepository.getAll();
     }
 
     @Override
     public Optional<Vet> findById(int id) {
-        return vetRepository.findById(id);
+        return vetRepository.findbyId(id);
     }
+
 
     @Override
     public void updateVetById(int id, String firstName, String lastName, String address, String speciality) {
@@ -68,8 +74,26 @@ public class VetServiceImpl implements VetService {
         if (id <= 0) {
             throw new IllegalArgumentException("Id is invalid !");
         }
-        vetRepository.deleteVetById(id);
+        vetRepository.deleteById(id);
 
+
+    }
+
+    @Override
+    public void importVets() throws IOException {
+        Path filePath = Paths.get("C:\\Users\\Jo\\Documents\\Git\\PetClinicManagementSystem\\src\\main\\resources\\Data\\Vets.txt");
+        Files.lines(filePath)
+                .skip(1)
+                .map(line -> line.split("\\|"))
+                .forEach(lineElements -> {
+                    if (lineElements.length == 4) {
+                        String firstName = lineElements[0];
+                        String lastName = lineElements[1];
+                        String address = lineElements[2];
+                        String speciality = lineElements[3];
+                        createVet(firstName, lastName, address, speciality);
+                    }
+                });
 
     }
 
