@@ -22,27 +22,27 @@ the following date:id/firstname/lastname/address/ speciality.
 
  PCMS_10-As a user I should be able to add a new pet. I should be able
 to specify ownerName/race/birthdate/isVaccinated.
- PCMS_11 -As a user I should be able to view the details of an existing pet.
+TODO PCMS_11 -As a user I should be able to view the details of an existing pet.
 I should be able to specify id/ownerName/race/birthdate/isVaccinated.
- PCMS_12 - As a user I should be able to update all existing pets by choosing
+ TODO PCMS_12 - As a user I should be able to update all existing pets by choosing
 the id. I should be able to edit ownerName/race/birthdate/isVaccinated.
- PCMS_13 - As a user I should be able to delete an existing pet by choosing the id.
- PCMS_14- As a user I should be able to view all pets. I should be able to view
+ TODO PCMS_13 - As a user I should be able to delete an existing pet by choosing the id.
+ TODO PCMS_14- As a user I should be able to view all pets. I should be able to view
 the following date:id/ownerName/race.
 
 ----------------------------------------
 
  PCMS_15- As a user I should be able to add a consult. I should be able to specify:
 vet id( of an existing vet), pet id ( of an existing pet) , date, description.
- PCMS_16- As a user I should be able to view all the consults. I should be able to
+ TODO PCMS_16- As a user I should be able to view all the consults. I should be able to
 view the following data:consult id, vet id( of an existing vet), pet id ( of an existing pet) ,
 date, description.
- PCMS_17- As a user I should be able to update only the description for a specific
+ TODO PCMS_17- As a user I should be able to update only the description for a specific
 consult by choosing the id.
 
 -------------------------------------------
 
- PCMS_18 - As a user I should be able to import all the data from a CSV file .
+ done - PCMS_18 - As a user I should be able to import all the data from a CSV file .
 ( un fisier cu un format asemanaor cu exel, dar cu . dupa fiecare cuvant
 afisate pe cate o linie).
 
